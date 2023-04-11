@@ -95,6 +95,30 @@ struct parse_node_st *parse_expression(struct scan_table_st *scan_table) {
 			node2->oper2.left = node1;
 			node2->oper2.right = parse_operand(scan_table);
 			node1 = node2;
+		} else if (token->id == TK_MINUS) {
+			scan_table_accept(scan_table, TK_ANY);
+			node2 = parse_node_new();
+			node2->type = EX_OPER2;
+			node2->oper2.oper = OP_MINUS;
+			node2->oper2.left = node1;
+			node2->oper2.right = parse_operand(scan_table);
+			node1 = node2;
+		} else if (token->id == TK_MULT) {
+			scan_table_accept(scan_table, TK_ANY);
+			node2 = parse_node_new();
+			node2->type = EX_OPER2;
+			node2->oper2.oper = OP_MULT;
+			node2->oper2.left = node1;
+			node2->oper2.right = parse_operand(scan_table);
+			node1 = node2;
+		} else if (token->id == TK_DIV) {
+			scan_table_accept(scan_table, TK_ANY);
+			node2 = parse_node_new();
+			node2->type = EX_OPER2;
+			node2->oper2.oper = OP_DIV;
+			node2->oper2.left = node1;
+			node2->oper2.right = parse_operand(scan_table);
+			node1 = node2;
 		} else {
 			break;
 		}
