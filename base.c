@@ -1,8 +1,9 @@
 #include <math.h>
 #include "lab06.h"
 
-int string_to_int(char *str, int base) {
-	int res = 0;
+int string_to_int(char *str, int base)
+{
+	int sum = 0;
 
 	if (str == NULL) {
 		printf("invalid string\n");
@@ -27,7 +28,7 @@ int string_to_int(char *str, int base) {
 			exit(-1);
 		}
 
-		res += digit * pow(base, strlen(str) - i - 1);
+		sum += digit * pow(base, strlen(str) - i - 1);
 	}
-	return res;
+	return sum;
 }
