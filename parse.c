@@ -164,7 +164,6 @@ struct parse_node_st *parse_operand(struct scan_table_st *scan_table)
 		node->type = EX_INTVAL;
 		node->intval.value = string_to_int(token->name, 2);
 	} else if (scan_table_accept(scan_table, TK_MINUS)) {
-		token = scan_table_get(scan_table, -1);
 		node = parse_node_new();
 		node->type = EX_OPER1;
 		node->oper1.oper = OP_MINUS;
