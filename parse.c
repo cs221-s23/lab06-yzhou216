@@ -75,16 +75,18 @@ struct parse_node_st *parse_program(struct scan_table_st *scan_table)
  * Expressions are defined in the EBNF as an operator followed by zero or more
  * operator operand pairs
  */
-struct parse_node_st *parse_expression(struct scan_table_st *scan_table) {
+struct parse_node_st *parse_expression(struct scan_table_st *scan_table)
+{
 	struct scan_token_st *token;
-	struct parse_node_st *node1, *node2;
+	struct parse_node_st *node1;
+	struct parse_node_st *node2;
 
 	node1 = parse_operand(scan_table);
 
 	/*
-	TODO
-	add cases for other OPER2 operators
-	*/
+	 * TODO:
+	 * add cases for other OPER2 operators
+	 */
 	while (true) {
 		token = scan_table_get(scan_table, 0);
 		if (token->id == TK_PLUS) {
@@ -131,7 +133,8 @@ struct parse_node_st *parse_expression(struct scan_table_st *scan_table) {
  * Parse operands, which are defined in the EBNF to be integer literals or unary
  * minus or expressions
  */
-struct parse_node_st *parse_operand(struct scan_table_st *scan_table) {
+struct parse_node_st *parse_operand(struct scan_table_st *scan_table)
+{
 	struct scan_token_st *token;
 	struct parse_node_st *node;
 
