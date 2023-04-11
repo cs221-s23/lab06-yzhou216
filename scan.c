@@ -128,8 +128,6 @@ char *scan_hexlit(struct scan_token_st *tp, char *p, char *end)
 	return p;
 }
 
-
-
 char *scan_token(char *p, char *end, struct scan_token_st *tp )
 {
 	if (p == end) {
