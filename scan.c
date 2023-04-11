@@ -57,7 +57,7 @@ char *scan_read_token(struct scan_token_st *tp, char *p, int len,
 
 bool scan_is_digit(char c)
 {
-	return c >= '0' && c <= '9';
+	return (c >= '0' && c <= '9');
 }
 
 bool scan_is_whitespace(char c)
@@ -199,7 +199,7 @@ void scan_table_print(struct scan_table_st *tt)
  * Return the current token pointer + i spaces
  * Looking backwards (i == -1) may be useful
  */
-struct scan_token_st * scan_table_get(struct scan_table_st *st, int i)
+struct scan_token_st *scan_table_get(struct scan_table_st *st, int i)
 {
 	struct scan_token_st *pt = st->head;
 	int which = st->next + i;

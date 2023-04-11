@@ -8,7 +8,7 @@ void parse_table_init(struct parse_table_st *parse_table)
 }
 
 /* Allocate a parse node from the table of parse nodes */
-struct parse_node_st * parse_node_new()
+struct parse_node_st *parse_node_new()
 {
 	return calloc(1, sizeof(struct parse_node_st));
 }
@@ -57,7 +57,7 @@ void parse_tree_print(struct parse_node_st *np)
  * Parse the "program" part of the EBNF
  * A program is composed of an expression followed by EOT
  */
-struct parse_node_st * parse_program(struct scan_table_st *scan_table)
+struct parse_node_st *parse_program(struct scan_table_st *scan_table)
 {
 	struct parse_node_st *root;
 
@@ -75,7 +75,7 @@ struct parse_node_st * parse_program(struct scan_table_st *scan_table)
  * Expressions are defined in the EBNF as an operator followed by zero or more
  * operator operand pairs
  */
-struct parse_node_st * parse_expression(struct scan_table_st *scan_table) {
+struct parse_node_st *parse_expression(struct scan_table_st *scan_table) {
 	struct scan_token_st *token;
 	struct parse_node_st *node1, *node2;
 
