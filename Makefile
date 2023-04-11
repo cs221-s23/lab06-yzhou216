@@ -10,7 +10,7 @@ CFLAGS = -g
 all : $(PROG)
 
 $(PROG) : lab06.h $(OBJS)
-	gcc $(CFLAGS) -o $@ $(OBJS)
+	gcc $(CFLAGS) -o $@ $(OBJS) -lm
 
 clean :
 	rm -rf $(PROG) $(OBJS)
