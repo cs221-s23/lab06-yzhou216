@@ -45,6 +45,9 @@ void parse_tree_print_expr(struct parse_node_st *node, int level)
 		printf("OPER2 %s\n", parse_oper_strings[node->oper2.oper]);
 		parse_tree_print_expr(node->oper2.left, level + 1);
 		parse_tree_print_expr(node->oper2.right, level + 1);
+	} else if (node->type == EX_OPER1) {
+		printf("OPER1 %s\n", parse_oper_strings[node->oper1.oper]);
+		parse_tree_print_expr(node->oper1.operand, level + 1);
 	}
 }
 
