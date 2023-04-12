@@ -168,6 +168,9 @@ struct parse_node_st *parse_operand(struct scan_table_st *scan_table)
 		node->type = EX_OPER1;
 		node->oper1.oper = OP_MINUS;
 		node->oper1.operand = parse_operand(scan_table);
+	} else if (scan_table_accept(scan_table, TK_LPAREN)) {
+		node = parse_expression(scan_table);
+		scan_table_accept(scan_table, TK_RPAREN);
 	} else {
 		parse_error("Bad operand");
 	}
